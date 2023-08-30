@@ -20,14 +20,13 @@ public class CrudSpringApplication {
 		return args -> {
 			courseRepository.deleteAll();
 
-			String[] names = {"Java com Spring", "JS com Angular", "Python com Pandas"};
-			String[] categories = {"Back End", "Front End", "Data Science"};
+			String[] names = {"Java com Spring", "JS com Angular", "Python com FastAPI"};
+			String[] categories = {"Back-End", "Front-End", "Back-End"};
 
 			for(int i = 0; i<3; i++){
 				Course c = new Course();
 				c.setName(names[i]);
 				c.setCategory(categories[i]);
-
 				courseRepository.save(c);
 			}
 		};
