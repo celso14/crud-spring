@@ -29,15 +29,13 @@ public class CourseService {
     public List<CourseOutputDTO> list() {
         List<Course> listCourses = this.courseRepository.findAll();
 
-        List<CourseOutputDTO> courseDTOs = listCourses.stream()
-                .map(course -> modelMapper.map(course, CourseOutputDTO.class))
-                .collect(Collectors.toList());
-
         // List<CourseOutputDTO> courseDTOs = listCourses.parallelStream()
         // .map(course -> modelMapper.map(listCourses, CourseOutputDTO.class))
         // .collect(Collectors.toList());
 
-        return courseDTOs;
+        return listCourses.stream()
+                .map(course -> modelMapper.map(course, CourseOutputDTO.class))
+                .collect(Collectors.toList());
     }
 
     public CourseOutputDTO findById(Long id) {
@@ -56,8 +54,7 @@ public class CourseService {
                 .map(recordFound -> {
                     recordFound.setName(courseInputDTO.getName());
                     recordFound.setCategory(courseInputDTO.getCategory());
-                    Course updated = courseRepository.save(recordFound);
-                    return updated;
+                    return courseRepository.save(recordFound);
                 }).orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found!"));
         return modelMapper.map(course, CourseOutputDTO.class);

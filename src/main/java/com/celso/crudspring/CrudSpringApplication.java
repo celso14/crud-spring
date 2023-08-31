@@ -26,14 +26,23 @@ public class CrudSpringApplication {
 			Category[] categories = {Category.BACKEND, Category.FRONTEND, Category.BACKEND};
 
 			for(int i = 0; i<3; i++){
+
 				Course c = new Course();
 				c.setName(names[i]);
 				c.setCategory(categories[i]);
+
 				Lesson l = new Lesson();
 				l.setName("Intro");
 				l.setYtUrl("URL");
 				l.setCourse(c);
 				c.getLessons().add(l);
+
+				Lesson l1 = new Lesson();
+				l1.setName("Intro2");
+				l1.setYtUrl("URL2");
+				l1.setCourse(c);
+				c.getLessons().add(l1);
+
 				courseRepository.save(c);
 			}
 		};
