@@ -5,8 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.celso.crudspring.entity.Course;
-import com.celso.crudspring.repository.CourseRepository;
+import com.celso.crudspring.entities.Course;
+import com.celso.crudspring.entities.Lesson;
+import com.celso.crudspring.enums.Category;
+import com.celso.crudspring.repositories.CourseRepository;
 
 @SpringBootApplication
 public class CrudSpringApplication {
@@ -21,12 +23,17 @@ public class CrudSpringApplication {
 			courseRepository.deleteAll();
 
 			String[] names = {"Java com Spring", "JS com Angular", "Python com FastAPI"};
-			String[] categories = {"Back-End", "Front-End", "Back-End"};
+			Category[] categories = {Category.BACKEND, Category.FRONTEND, Category.BACKEND};
 
 			for(int i = 0; i<3; i++){
 				Course c = new Course();
 				c.setName(names[i]);
 				c.setCategory(categories[i]);
+				Lesson l = new Lesson();
+				l.setName("Intro");
+				l.setYtUrl("URL");
+				l.setCourse(c);
+				c.getLessons().add(l);
 				courseRepository.save(c);
 			}
 		};

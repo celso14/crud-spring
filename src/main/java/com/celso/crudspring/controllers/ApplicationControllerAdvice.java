@@ -1,11 +1,12 @@
-package com.celso.crudspring.controller;
+package com.celso.crudspring.controllers;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.http.HttpStatus;
 
-import com.celso.crudspring.exception.NotFoundException;
+import com.celso.crudspring.exceptions.NotFoundException;
+
+import org.springframework.http.HttpStatus;
 
 @RestControllerAdvice
 public class ApplicationControllerAdvice {

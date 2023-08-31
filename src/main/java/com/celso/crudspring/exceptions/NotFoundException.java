@@ -1,4 +1,4 @@
-package com.celso.crudspring.exception;
+package com.celso.crudspring.exceptions;
 
 public class NotFoundException extends RuntimeException {
 

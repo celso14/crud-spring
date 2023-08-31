@@ -1,4 +1,4 @@
-package com.celso.crudspring.controller;
+package com.celso.crudspring.controllers;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.celso.crudspring.dto.input.CourseInputDTO;
-import com.celso.crudspring.dto.output.CourseOutputDTO;
-import com.celso.crudspring.service.CourseService;
+import com.celso.crudspring.dtos.input.CourseInputDTO;
+import com.celso.crudspring.dtos.output.CourseOutputDTO;
+import com.celso.crudspring.services.CourseService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

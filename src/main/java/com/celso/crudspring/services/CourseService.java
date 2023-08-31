@@ -1,4 +1,4 @@
-package com.celso.crudspring.service;
+package com.celso.crudspring.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.celso.crudspring.dto.input.CourseInputDTO;
-import com.celso.crudspring.dto.output.CourseOutputDTO;
-import com.celso.crudspring.entity.Course;
-import com.celso.crudspring.exception.NotFoundException;
-import com.celso.crudspring.repository.CourseRepository;
+import com.celso.crudspring.dtos.input.CourseInputDTO;
+import com.celso.crudspring.dtos.output.CourseOutputDTO;
+import com.celso.crudspring.entities.Course;
+import com.celso.crudspring.exceptions.NotFoundException;
+import com.celso.crudspring.repositories.CourseRepository;
 
 @Service
 public class CourseService {
